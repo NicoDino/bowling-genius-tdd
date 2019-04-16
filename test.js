@@ -1,10 +1,11 @@
+let should = require('chai').should();
+let Game = require('./bowling');
 
-var chai = require('chai');
 describe("Bowling", function () {
- let game = null;
 
+  let game = new Game();
   it("gutter game", function () {
-      chai.expect(game.getScore()).toBe(0);
+    game.getScore().should.equal(0);
   });
-    
+
 });
