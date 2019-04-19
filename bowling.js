@@ -1,15 +1,15 @@
 let Game = function () {
-    let shots = [];
+    let rolls = [];
 
-    this.shoot = function (pinsKnocked) {
-        shots.push(pinsKnocked);
+    this.roll = function (pinsKnocked) {
+        rolls.push(pinsKnocked);
     }
 
     this.getScore = function () {
-        if (!shots.length) {
+        if (!rolls.length) {
             return 0;
         }
-        let score = shots.reduce((parcial, a) => parcial + a);
+        let score = rolls.reduce((parcial, a) => parcial + a);
         return score;
     }
 }
