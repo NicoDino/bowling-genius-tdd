@@ -5,7 +5,8 @@ describe("Bowling", function () {
 
   let game = new Game();
 
-  let rollMany = function (shots, pinsKnocked) {
+  
+  let rollMany = function (game,shots, pinsKnocked) {
     for (i = 0; i < shots; i++) {
       game.roll(pinsKnocked);
     }
@@ -36,7 +37,7 @@ it("Todos unos", function() {
     game.roll(3);
     rollMany(game, 17, 0);
 
-    expect(game.getScore()).toBe(16);
+    game.getScore().should.equal(16);
 });
 
 it("false spare", function() {
@@ -47,7 +48,7 @@ it("false spare", function() {
     game.roll(3);
     rollMany(game, 16, 0);
 
-    expect(game.getScore()).toBe(13);
+    game.getScore().should.equal(13);
 });
 
 it("one strike", function() {
@@ -57,7 +58,7 @@ it("one strike", function() {
     game.roll(4);
     rollMany(game, 16, 0);
 
-    expect(game.getScore()).toBe(24);
+    game.getScore().should.equal(24);
 });
 
 it("gutter and ten means spare", function() {
@@ -67,7 +68,7 @@ it("gutter and ten means spare", function() {
     game.roll(4);
     rollMany(game, 16, 0);
 
-    expect(game.getScore()).toBe(20);
+    game.getScore().should.equal(20);
 });
 
 it("strike followed by spare", function() {
@@ -78,7 +79,7 @@ it("strike followed by spare", function() {
     game.roll(4);
     rollMany(game, 14, 0);
 
-    expect(game.getScore()).toBe(42);
+    game.getScore().should.equal(42);
 });
 
 it("strike followed by strike", function() {
@@ -88,7 +89,7 @@ it("strike followed by strike", function() {
     game.roll(4);
     rollMany(game, 14, 0);
 
-    expect(game.getScore()).toBe(47);
+    game.getScore().should.equal(47);
 });
 
 it("spare followed by strike", function() {
@@ -99,7 +100,7 @@ it("spare followed by strike", function() {
     game.roll(4);
     rollMany(game, 14, 0);
 
-    expect(game.getScore()).toBe(44);
+    game.getScore().should.equal(44);
 });
 
 it("last frame normal case", function() {
@@ -107,7 +108,7 @@ it("last frame normal case", function() {
     game.roll(3)
     game.roll(4);
 
-    expect(game.getScore()).toBe(7);
+    game.getScore().should.equal(7);
 });
 
 it("last frame spare", function() {
@@ -116,7 +117,7 @@ it("last frame spare", function() {
     game.roll(7);
     game.roll(9);
 
-    expect(game.getScore()).toBe(19);
+    game.getScore().should.equal(19);
 });
 
 xit("last frame strike", function() {
@@ -125,7 +126,7 @@ xit("last frame strike", function() {
     game.roll(3);
     game.roll(4);
 
-    expect(game.getScore()).toBe(17);
+    game.getScore().should.equal(17);
 });
 
 xit("last frame strike followed by spare", function() {
@@ -134,13 +135,13 @@ xit("last frame strike followed by spare", function() {
     game.roll(3);
     game.roll(7);
 
-    expect(game.getScore()).toBe(20);
+    game.getScore().should.equal(20);
 });
 
 xit("perfect game", function() {
     rollMany(game, 12, 10);
 
-    expect(game.getScore()).toBe(300);
+    game.getScore().should.equal(300);
 });
 });
 
