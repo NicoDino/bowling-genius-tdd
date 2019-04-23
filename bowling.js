@@ -1,8 +1,17 @@
- let Game = function () {
+let Game = function () {
+    let rolls = [];
 
-     this.getScore = function () {
-         return 0
-     }
- }
+    this.roll = function (pinsKnocked) {
+        rolls.push(pinsKnocked);
+    }
 
- module.exports = Game;
+    this.getScore = function () {
+        if (!rolls.length) {
+            return 0;
+        }
+        let score = rolls.reduce((parcial, a) => parcial + a);
+        return score;
+    }
+}
+
+module.exports = Game;
