@@ -5,12 +5,16 @@ describe("Bowling", function () {
 
   let game = new Game();
 
-  
+
   let rollMany = function (game,shots, pinsKnocked) {
     for (i = 0; i < shots; i++) {
       game.roll(pinsKnocked);
     }
   };
+
+  beforeEach(function() {
+    game = new Game();
+  });
 
   it("gutter game", function () {
     game.getScore().should.equal(0);
