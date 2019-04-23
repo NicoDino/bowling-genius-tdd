@@ -1,18 +1,17 @@
- 
- let Game = function () {
-var puntaje=0;
-    
-    this.roll = function (puntos) {
-        puntaje = puntaje + puntos;
+let Game = function () {
+    let rolls = [];
+
+    this.roll = function (pinsKnocked) {
+        rolls.push(pinsKnocked);
     }
 
     this.getScore = function () {
-         return puntaje;
+        if (!rolls.length) {
+            return 0;
+        }
+        let score = rolls.reduce((parcial, a) => parcial + a);
+        return score;
     }
-    
- }
+}
 
-
-  
-
- module.exports = Game;
+module.exports = Game;
