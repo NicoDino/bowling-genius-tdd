@@ -5,13 +5,13 @@ describe("Bowling", function () {
 
   let game = new Game();
 
-  var rollMany = function(game, n, pins) {
-    for(i = 0; i < n; i++) {
-        game.roll(pins);
-    };
+  let rollMany = function (shots, pinsKnocked) {
+    for (i = 0; i < shots; i++) {
+      game.roll(pinsKnocked);
+    }
   };
 
-  it("gutter game sin tiros", function () {
+  it("gutter game", function () {
     game.getScore().should.equal(0);
   });
 
