@@ -18,7 +18,7 @@ let Game = function () {
         }
         
         if(isStrike){
-         
+         //  console.log("entro a sumar bonus de strike a pinsKnocked "+pinsKnocked);
             score = score+pinsKnocked;
             if(doubleStrike){
                 score =score+pinsKnocked;
@@ -43,10 +43,10 @@ let Game = function () {
             isStrike=true;
             secondStrikeBonus=true;
             firtsShoot=false; 
-    
+         //  console.log("Entro a es strike con pinos =  "+pinsKnocked);
         }
         else{ 
-          
+      //     console.log("antes del if de spare. Pinsknocked : "+pinsKnocked+" lastPins = "+lastPins +" !firtsShott "+!firtsShoot);
         if(pinsKnocked+lastPins==10 && !firtsShoot) {
             isSpare=true;
     

@@ -116,10 +116,11 @@ it("last frame normal case", function() {
 });
 
 it("last frame spare", function() {
-    rollMany(game, 18, 0);
+    rollMany(game, 17, 0);
     game.roll(3);
     game.roll(7);
     game.roll(9);
+    game.roll(0);
 
     game.getScore().should.equal(19);
 });
