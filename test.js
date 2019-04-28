@@ -16,7 +16,7 @@ describe("Bowling", function () {
     game = new Game();
   });
 
-  it("gutter game", function () {
+   it("gutter game", function () {
     game.getScore().should.equal(0);
   });
 
@@ -84,7 +84,7 @@ it("strike followed by spare", function() {
     rollMany(game, 14, 0);
 
     game.getScore().should.equal(42);
-});
+}); 
 
 it("strike followed by strike", function() {
     game.roll(10);
@@ -116,10 +116,11 @@ it("last frame normal case", function() {
 });
 
 it("last frame spare", function() {
-    rollMany(game, 18, 0);
+    rollMany(game, 17, 0);
     game.roll(3);
     game.roll(7);
     game.roll(9);
+    game.roll(0);
 
     game.getScore().should.equal(19);
 });
@@ -147,5 +148,7 @@ xit("perfect game", function() {
 
     game.getScore().should.equal(300);
 });
+
 });
+
 
