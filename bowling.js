@@ -5,6 +5,7 @@ let Game = function () {
     var isStrike = false;
     var score;
     var lastPins;
+    var secondStrikeBonus=true;
 
     this.roll = function (pinsKnocked) {
         firtsShoot=!firtsShoot;
@@ -15,19 +16,28 @@ let Game = function () {
         }
         
         if(isStrike){
-            score = addStrikeBonus();
-        }
+            score = score+pinsKnocked;
+            secondStrikeBonus=!secondStrikeBonus;
+            if(secondStrikeBonus){
+                isStrike=false;
+            }
+          
+            }
+           
+        
         if(isSpare){
             score = score+pinsKnocked;
             isSpare=false;
         }
         if(pinsKnocked==10 && firtsShoot){
             isStrike=true;
+            firtsShoot=false; 
         }
+        else{ 
         if(pinsKnocked+lastPins==10 && !firtsShoot) {
             isSpare=true;
         }
-
+    }
 
         rolls.push(score);
     }
