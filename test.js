@@ -147,5 +147,7 @@ xit("perfect game", function() {
 
     game.getScore().should.equal(300);
 });
+
 });
+
 
