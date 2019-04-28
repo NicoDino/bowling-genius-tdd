@@ -7,6 +7,7 @@ let Game = function () {
     var score;
     var lastPins;
     var secondStrikeBonus=true;
+    var doubleStrike = false;
 
     this.roll = function (pinsKnocked) {
         firtsShoot=!firtsShoot;
@@ -17,7 +18,12 @@ let Game = function () {
         }
         
         if(isStrike){
+           // console.log("entro a sumar bonus de strike a pinsKnocked "+pinsKnocked);
             score = score+pinsKnocked;
+            if(doubleStrike){
+                score =score+pinsKnocked;
+                doubleStrike=false;
+            }
             secondStrikeBonus=!secondStrikeBonus;
             if(secondStrikeBonus){
                 isStrike=false;
@@ -31,16 +37,19 @@ let Game = function () {
             isSpare=false;
         }
         if(pinsKnocked==10 && firtsShoot){
+            if(isStrike){
+                doubleStrike=true;
+            }
             isStrike=true;
             secondStrikeBonus=true;
             firtsShoot=false; 
-       //     console.log("Entro a es strike con pinos =  "+pinsKnocked);
+          // console.log("Entro a es strike con pinos =  "+pinsKnocked);
         }
         else{ 
           //  console.log("antes del if de spare. Pinsknocked : "+pinsKnocked+" lastPins = "+lastPins +" !firtsShott "+!firtsShoot);
         if(pinsKnocked+lastPins==10 && !firtsShoot) {
             isSpare=true;
-          //  console.log("Entro a es spare con pinos = "+pinsKnocked);
+        //    console.log("Entro a es spare con pinos = "+pinsKnocked);
         }
     }
         onlyRolls.push(pinsKnocked);
