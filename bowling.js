@@ -16,7 +16,7 @@ let Game = function () {
                 totalScore += sumaBonusStrike();
                 rollNumber++; // Solo cuando es strike se realiza un solo tiro
             } else if (esSpare()) {
-                totalScore += 10 + rolls[rollNumber + 2];
+                totalScore += sumaBonusSpare();
                 rollNumber += 2;
             } else {
                 totalScore += rolls[rollNumber] + rolls[rollNumber + 1];
@@ -29,9 +29,14 @@ let Game = function () {
             return rolls[rollNumber] + rolls[rollNumber + 1] === 10;
         }
 
+        function sumaBonusSpare() {
+            return 10 + rolls[rollNumber + 2];
+        }
+
         function esStrike() {
             return rolls[rollNumber] === 10;
         }
+
         function sumaBonusStrike() {
             return 10 + rolls[rollNumber + 1] + rolls[rollNumber + 2]
         }
