@@ -13,7 +13,7 @@ let Game = function () {
         // calcula la suma de cada "frame" (par de tiros)
         for (let frame = 0; frame < 10; frame++) {
             if (esStrike()) {
-                totalScore += 10 + rolls[rollNumber + 1] + rolls[rollNumber + 2];
+                totalScore += sumaBonusStrike();
                 rollNumber++; // Solo cuando es strike se realiza un solo tiro
             } else if (esSpare()) {
                 totalScore += 10 + rolls[rollNumber + 2];
@@ -31,6 +31,9 @@ let Game = function () {
 
         function esStrike() {
             return rolls[rollNumber] === 10;
+        }
+        function sumaBonusStrike() {
+            return 10 + rolls[rollNumber + 1] + rolls[rollNumber + 2]
         }
     }
 }
