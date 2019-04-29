@@ -19,11 +19,15 @@ let Game = function () {
                 totalScore += sumaBonusSpare();
                 rollNumber += 2;
             } else {
-                totalScore += rolls[rollNumber] + rolls[rollNumber + 1];
+                totalScore += sumaRolls();
                 rollNumber += 2;
             }
         }
         return totalScore;
+
+        function sumaRolls() {
+            return rolls[rollNumber] + rolls[rollNumber + 1];
+        }
 
         function esSpare() {
             return rolls[rollNumber] + rolls[rollNumber + 1] === 10;
