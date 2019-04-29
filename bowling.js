@@ -1,68 +1,52 @@
 let Game = function () {
     let rolls = [];
-    let onlyRolls=[];
-    var firtsShoot = false;
-    var isSpare = false;
-    var isStrike = false;
-    var score;
-    var lastPins;
-    var secondStrikeBonus=true;
-    var doubleStrike = false;
 
     this.roll = function (pinsKnocked) {
-        firtsShoot=!firtsShoot;
-        lastPins=0;
-        score=pinsKnocked;
-        if(!firtsShoot){
-            lastPins=onlyRolls[onlyRolls.length-1];
-        }
-        
-        if(isStrike){
-         //  console.log("entro a sumar bonus de strike a pinsKnocked "+pinsKnocked);
-            score = score+pinsKnocked;
-            if(doubleStrike){
-                score =score+pinsKnocked;
-                doubleStrike=false;
-            }
-            secondStrikeBonus=!secondStrikeBonus;
-            if(secondStrikeBonus){
-                isStrike=false;
-            }
-          
-            }
-           
-        
-        if(isSpare){
-            score = score+pinsKnocked;
-            isSpare=false;
-        }
-        if(pinsKnocked==10 && firtsShoot){
-            if(isStrike){
-                doubleStrike=true;
-            }
-            isStrike=true;
-            secondStrikeBonus=true;
-            firtsShoot=false; 
-         //  console.log("Entro a es strike con pinos =  "+pinsKnocked);
-        }
-        else{ 
-      //     console.log("antes del if de spare. Pinsknocked : "+pinsKnocked+" lastPins = "+lastPins +" !firtsShott "+!firtsShoot);
-        if(pinsKnocked+lastPins==10 && !firtsShoot) {
-            isSpare=true;
-    
-        }
-    }
-        onlyRolls.push(pinsKnocked);
-        rolls.push(score);
+
+        rolls.push(pinsKnocked);
     }
 
     this.getScore = function () {
-        if (!rolls.length) {
-            return 0;
+        let totalScore = 0;
+        let rollNumber = 0;
+
+        // calcula la suma de cada "frame" (par de tiros)
+        for (let frame = 0; frame < 10; frame++) {
+            if (esStrike()) {
+                totalScore += sumaBonusStrike();
+                rollNumber++; // Solo cuando es strike se realiza un solo tiro
+            } else if (esSpare()) {
+                totalScore += sumaBonusSpare();
+                rollNumber += 2;
+            } else {
+                totalScore += sumaRolls();
+                rollNumber += 2;
+            }
         }
-        let score = rolls.reduce((parcial, a) => parcial + a);
-        return score;
+        return totalScore;
+
+        function sumaRolls() {
+            return rolls[rollNumber] + rolls[rollNumber + 1];
+        }
+
+        function esSpare() {
+            return rolls[rollNumber] + rolls[rollNumber + 1] === 10;
+        }
+
+        function sumaBonusSpare() {
+            return 10 + rolls[rollNumber + 2];
+        }
+
+        function esStrike() {
+            return rolls[rollNumber] === 10;
+        }
+
+        function sumaBonusStrike() {
+            return 10 + rolls[rollNumber + 1] + rolls[rollNumber + 2]
+        }
     }
 }
 
 module.exports = Game;
+
+
