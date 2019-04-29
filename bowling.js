@@ -12,10 +12,10 @@ let Game = function () {
 
         // calcula la suma de cada "frame" (par de tiros)
         for (let frame = 0; frame < 10; frame++) {
-            if (esStrike(rolls, rollNumber)) {
+            if (esStrike()) {
                 totalScore += 10 + rolls[rollNumber + 1] + rolls[rollNumber + 2];
                 rollNumber++; // Solo cuando es strike se realiza un solo tiro
-            } else if (esSpare(rolls, rollNumber)) {
+            } else if (esSpare()) {
                 totalScore += 10 + rolls[rollNumber + 2];
                 rollNumber += 2;
             } else {
@@ -24,16 +24,17 @@ let Game = function () {
             }
         }
         return totalScore;
+
+        function esSpare() {
+            return rolls[rollNumber] + rolls[rollNumber + 1] === 10;
+        }
+
+        function esStrike() {
+            return rolls[rollNumber] === 10;
+        }
     }
 }
 
 module.exports = Game;
 
-function esSpare(rolls, rollNumber) {
-    return rolls[rollNumber] + rolls[rollNumber + 1] === 10;
-}
-
-function esStrike(rolls, rollNumber) {
-    return rolls[rollNumber] === 10;
-}
 
