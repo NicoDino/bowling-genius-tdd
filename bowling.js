@@ -8,6 +8,7 @@ let Game = function () {
     var lastPins;
     var secondStrikeBonus=true;
     var doubleStrike = false;
+    
 
     this.roll = function (pinsKnocked) {
         firtsShoot=!firtsShoot;

@@ -16,12 +16,12 @@ describe("Bowling", function () {
     game = new Game();
   });
 
-   it("gutter game", function () {
+  it("gutter game", function () {
     game.getScore().should.equal(0);
   });
 
   it("gutter game con tiros", function() {
-    rollMany(game, 20, 0);
+    rollMany(game, 20, 0);  
     game.getScore().should.equal(0);
 });
 
@@ -84,7 +84,7 @@ it("strike followed by spare", function() {
     rollMany(game, 14, 0);
 
     game.getScore().should.equal(42);
-}); 
+});
 
 it("strike followed by strike", function() {
     game.roll(10);
@@ -116,39 +116,36 @@ it("last frame normal case", function() {
 });
 
 it("last frame spare", function() {
-    rollMany(game, 17, 0);
+    rollMany(game, 18, 0);
     game.roll(3);
     game.roll(7);
     game.roll(9);
-    game.roll(0);
 
-    game.getScore().should.equal(19);
+    game.getScore().should.equal(28);
 });
 
-xit("last frame strike", function() {
+it("last frame strike", function() {
     rollMany(game, 18, 0);
     game.roll(10);
     game.roll(3);
     game.roll(4);
 
-    game.getScore().should.equal(17);
+    game.getScore().should.equal(24);
 });
 
-xit("last frame strike followed by spare", function() {
+it("last frame strike followed by spare", function() {
     rollMany(game, 18, 0);
     game.roll(10);
     game.roll(3);
     game.roll(7);
 
-    game.getScore().should.equal(20);
+    game.getScore().should.equal(30);
 });
 
-xit("perfect game", function() {
+it("perfect game", function() {
     rollMany(game, 12, 10);
 
     game.getScore().should.equal(300);
 });
-
 });
-
 
