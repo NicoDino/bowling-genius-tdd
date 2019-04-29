@@ -11,11 +11,11 @@ Agustin Chiarotto -  Nicolas Dinolfo
 ****
 ## Ejemplo de un ciclo de TDD
 
-1. Se agrega el test "all ones" - ver commit 88aed811ae8aa038759e55eaade18841a505b7c7
-2. Implementa el código necesario para pasar el test - ver commit 22c5dcd0d7c537505b12efc58287a0cdbec9104e
+1. Se agrega el test "all ones" - [ver commit](https://github.com/NicoDino/bowling-genius-tdd/tree/88aed811ae8aa038759e55eaade18841a505b7c7) 
+2. Implementa el código necesario para pasar el test - [ver commit](https://github.com/NicoDino/bowling-genius-tdd/tree/22c5dcd0d7c537505b12efc58287a0cdbec9104e) 
 3. Refactor
-    - Agrega funcion rollMany. ver commit 83ed0957193265424e79379e1852e8aac7eee806
-    - Renombra variables y funciones para mejorar legibilidad del código. ver commit 8ce696c7974e9d93198e15a6b48abcbb14b46253
+    - Agrega funcion rollMany. - [ver commit](https://github.com/NicoDino/bowling-genius-tdd/tree/83ed0957193265424e79379e1852e8aac7eee806)
+    - Renombra variables y funciones para mejorar legibilidad del código.  - [ver commit](https://github.com/NicoDino/bowling-genius-tdd/tree/8ce696c7974e9d93198e15a6b48abcbb14b46253) 
 ****
 
 El siguiente trabajo conta de un desarrollo guiado por pruebas (TDD) para obtener un codigo refinado y funcional del puntaje de un juego de Bowling. Para esto utilizamos lenguaje javaScript junto con la herramienta de testeo Mocha.
