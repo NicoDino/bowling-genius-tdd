@@ -17,8 +17,9 @@ Agustin Chiarotto -  Nicolas Dinolfo
     - Agrega funcion rollMany. - [ver commit](https://github.com/NicoDino/bowling-genius-tdd/tree/83ed0957193265424e79379e1852e8aac7eee806)
     - Renombra variables y funciones para mejorar legibilidad del código.  - [ver commit](https://github.com/NicoDino/bowling-genius-tdd/tree/8ce696c7974e9d93198e15a6b48abcbb14b46253) 
 ****
+## Conclusiones
 
-El siguiente trabajo conta de un desarrollo guiado por pruebas (TDD) para obtener un codigo refinado y funcional del puntaje de un juego de Bowling. Para esto utilizamos lenguaje javaScript junto con la herramienta de testeo Mocha.
+El trabajo consta de un desarrollo guiado por pruebas (TDD) para obtener un codigo refinado y funcional del puntaje de un juego de Bowling. Para esto utilizamos lenguaje javaScript junto con la herramienta de testeo Mocha.
 Este deporte consiste en derribar pinos de madera arrojando una bola. Los puntos de un juego se basan en la cantidad de pinos tumbados con la suma de puntaje bonus si ocurre que se derriben todos en un turno. Cada turno consta de un maximo de dos tiros.
 
 Sistema de puntuacion
